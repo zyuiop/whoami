@@ -18,6 +18,7 @@ pub enum Platform {
     Fuchsia,
     Redox,
     Hurd,
+    Hermit
 }
 
 impl Display for Platform {
@@ -40,6 +41,7 @@ impl Display for Platform {
             Self::Fuchsia => "Fuchsia",
             Self::Redox => "Redox",
             Self::Hurd => "GNU Hurd",
+            Self::Hermit => "Hermit",
         })
     }
 }

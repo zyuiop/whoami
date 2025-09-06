@@ -11,7 +11,9 @@ pub(crate) fn string_from_os(string: OsString) -> Result<String> {
         all(target_arch = "wasm32", target_os = "wasi"),
     ))]
     {
-        #[cfg(not(target_os = "wasi"))]
+        #[cfg(target_os = "hermit")]
+        use std::os::hermit::ffi::OsStringExt;
+        #[cfg(not(any(target_os = "wasi", target_os = "hermit")))]
         use std::os::unix::ffi::OsStringExt;
         #[cfg(target_os = "wasi")]
         use std::os::wasi::ffi::OsStringExt;
@@ -29,4 +31,6 @@ pub(crate) fn string_from_os(string: OsString) -> Result<String> {
             Error::new(ErrorKind::InvalidData, "Not valid unicode")
         })
     }
+
+
 }
