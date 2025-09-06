@@ -7,6 +7,11 @@
     all(target_os = "redox", not(target_arch = "wasm32")),
     path = "os/redox.rs"
 )]
+// Hermit
+#[cfg_attr(
+    all(target_os = "hermit", not(target_arch = "wasm32")),
+    path = "os/hermit.rs"
+)]
 // Unix
 #[cfg_attr(
     all(

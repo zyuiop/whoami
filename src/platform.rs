@@ -24,6 +24,7 @@ pub enum Platform {
     Redox,
     Hurd,
     Unknown(String),
+    Hermit
 }
 
 impl Display for Platform {
@@ -47,6 +48,7 @@ impl Display for Platform {
             Self::Redox => "Redox",
             Self::Hurd => "GNU Hurd",
             Self::Unknown(a) => a,
+            Self::Hermit => "Hermit",
         })
     }
 }
